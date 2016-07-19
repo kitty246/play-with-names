@@ -64,7 +64,7 @@ class Name {
 debugger;
 
 import Component from 'react';
-import ReactDOM from 'reactDOM';
+import ReactDOM from 'react-dom';
 import {Button, Modal} from 'react-bootstrap';
 import {Header, Body, Footer, Title} from 'react-bootstrap/lib/Modal';
 

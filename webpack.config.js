@@ -1,6 +1,7 @@
 'use strict';
 
 var path = require('path');
+var APP_DIR = path.join(__dirname, 'src');
 
 module.exports = {
   entry: './src/main.js',
@@ -18,51 +19,10 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: path.join(__dirname, 'src'),
-        loader: 'babel-loader'
+        test : /\.jsx?/,
+        include : APP_DIR,
+        loader : 'babel'
       }
     ]
-    // loaders: [
-    // {
-    //   test: /\.jsx?$/,
-    //   exclude: /(node_modules|bower_components)/,
-    //   loader: 'transform/cacheable?brfs',
-    //   cacheable: true
-    // }, {
-    //   test: /\.jsx?$/,
-    //   exclude: /(node_modules|bower_components)/,
-    //   loader: 'transform/cacheable?envify',
-    //   cacheable: true
-    // },
-    // {
-    //   test: /\.jsx?$/,
-    //   exclude: /(node_modules|bower_components)/,
-    //   cacheable: true,
-    //   loader: 'babel-loader',
-    //   query: {
-    //     stage: 0,
-    //     retainLines: true,
-    //     cacheDirectory: true
-    //   }
-    // }]
   }
 };
-
-// var path = require('path');
-
-// module.exports = {
-//   entry: './src/main.js',
-//   output: {
-//     path: path.join(__dirname, 'build'),
-//     filename: 'bundle.js'
-//   },
-//   devtool: 'inline-source-map',
-//   module: {
-//     loaders: [
-//       {
-//         test: path.join(__dirname, 'src'),
-//         loader: 'babel-loader'
-//       }
-//     ]
-//   }
-// };
