@@ -23117,22 +23117,70 @@ var CommentBox = function (_Component) {
 
   function CommentBox() {
     (0, _classCallCheck3.default)(this, CommentBox);
-    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(CommentBox).apply(this, arguments));
+
+    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(CommentBox).call(this));
+
+    _this.state = {
+      commentList: [{
+        author: 'Duong Nhat Tan',
+        body: 'Rung xanh hoa chuoi do tuoi'
+      }, {
+        author: 'Truong Thi Ho Thanh',
+        body: 'Deo cao nang anh dao gai that lung'
+      }]
+    };
+    return _this;
   }
 
   (0, _createClass3.default)(CommentBox, [{
+    key: '_sendCommentButton',
+    value: function _sendCommentButton(comment) {
+      var newComment = this.state.commentList;
+      newComment.push(comment);
+      this.setState({
+        commentList: newComment
+      });
+    }
+  }, {
+    key: '_deleteCommentButton',
+    value: function _deleteCommentButton(comment) {
+      var deleteComment = this.state.commentList;
+
+      deleteComment = deleteComment.filter(function (deleteCommentData) {
+        return deleteCommentData.author !== comment.author || deleteCommentData.body !== comment.body;
+      });
+
+      this.setState({
+        commentList: deleteComment
+      });
+    }
+  }, {
+    key: '_getComment',
+    value: function _getComment() {
+      var _this2 = this;
+
+      return this.state.commentList.map(function (commentData) {
+        return _react2.default.createElement(_comment.Comment, {
+          author: commentData.author,
+          body: commentData.body,
+          sendCommentButton: _this2._sendCommentButton.bind(_this2),
+          deleteCommentButton: _this2._deleteCommentButton.bind(_this2) });
+      });
+    }
+  }, {
     key: 'render',
-
-    // _getComment() {
-    //   const commentList = 
-    // }
-
     value: function render() {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_comment.Comment, { author: 'Tan Duong', body: 'Minh ve minh co nho ta' }),
-        _react2.default.createElement(_comment.Comment, { author: 'Thanh Truong', body: 'Ta ve ta nho nhung hoa cung nguoi' })
+        _react2.default.createElement(_comment_form.CommentForm, {
+          sendCommentButton: this._sendCommentButton.bind(this),
+          deleteCommentButton: this._deleteCommentButton.bind(this) }),
+        _react2.default.createElement(
+          'div',
+          null,
+          this._getComment()
+        )
       );
     }
   }]);
@@ -23188,6 +23236,14 @@ var Comment = exports.Comment = function (_Component) {
   }
 
   (0, _createClass3.default)(Comment, [{
+    key: '_clickDeleteCommentButton',
+    value: function _clickDeleteCommentButton() {
+      this.props.deleteCommentButton({
+        author: this.props.author,
+        body: this.props.body
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -23203,7 +23259,11 @@ var Comment = exports.Comment = function (_Component) {
           null,
           this.props.body
         ),
-        'hello'
+        _react2.default.createElement(
+          'button',
+          { onClick: this._clickDeleteCommentButton.bind(this) },
+          'Delete Comment'
+        )
       );
     }
   }]);
@@ -23263,6 +23323,7 @@ var CommentForm = exports.CommentForm = function (_Component) {
         author: this.author.value,
         body: this.body.value
       });
+      this.author.value = '', this.body.value = '';
     }
   }, {
     key: 'render',
@@ -23290,7 +23351,7 @@ var CommentForm = exports.CommentForm = function (_Component) {
           _react2.default.createElement(
             'label',
             { 'for': 'body' },
-            'Name'
+            'Content'
           ),
           _react2.default.createElement('input', { name: 'content', id: 'body', ref: function ref(input) {
               return _this2.body = input;

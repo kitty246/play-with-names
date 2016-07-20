@@ -6,6 +6,8 @@ export class CommentForm extends Component {
       author: this.author.value,
       body: this.body.value
     })
+    this.author.value='',
+    this.body.value=''
   }
   render() {
     return(
@@ -15,7 +17,7 @@ export class CommentForm extends Component {
           <input name='content' id='author' ref={input => this.author = input}/>
         </div>
         <div className='body-input'>
-          <label for='body'>Name</label>
+          <label for='body'>Content</label>
           <input name='content' id='body' ref={input => this.body = input}/>
         </div>
         <button onClick={this._clickSendCommentButton.bind(this)}>Send Comment</button>
