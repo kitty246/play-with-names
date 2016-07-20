@@ -20,8 +20,12 @@ module.exports = {
     loaders: [
       {
         test : /\.jsx?/,
-        include : APP_DIR,
-        loader : 'babel'
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015'],
+          plugins: ['transform-runtime']
+        }
       }
     ]
   }
