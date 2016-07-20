@@ -1,8 +1,7 @@
 import firebase from 'firebase/app';
-// all 3 are optional and you only need to require them at the start
-// from ('firebase/auth');
-// from ('firebase/database');
-// from ('firebase/storage');
+require('firebase/database');
+require('firebase/auth');
+require('firebase/storage');
 
 const firebaseConfig = {
   apiKey: "AIzaSyCQ53rGoOfrCWQQC9SicdVJ3MCM9cwMJJ0",
@@ -56,23 +55,31 @@ class Name {
 
   static read() {
     let recentNamesRef = firebase.database().ref('names').limitToFirst(100);
-    debugger;
+    recentNamesRef.once('value', function(snapshot) {
+      debugger;
+      snapshot.forEach(function(childSnapshot) {
+        debugger;
+        console.log(childSnapshot.val())
+      });
+    });
     return 1;
   }
 }
 
-debugger;
-
 import Component from 'react';
 import ReactDOM from 'react-dom';
-import {Button, Modal} from 'react-bootstrap';
-import {Header, Body, Footer, Title} from 'react-bootstrap/lib/Modal';
+import Bootstrap from 'react-bootstrap';
 
+import {Button, Modal} from 'react-bootstrap';
+const {Header, Body, Footer, Title} = Modal;
 
 class Trigger extends Component {
   constructor() {
     super();
     this.state = { show: false };
+    Name.read(function() {
+
+    });
   }
 
   render() {
