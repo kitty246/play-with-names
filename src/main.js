@@ -1,50 +1,21 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Name} from './name';
+import {Comment} from './comment';
+import {CommentForm} from './comment_form';
 
-// import Bootstrap from 'react-bootstrap';
-
-import {Button, Modal} from 'react-bootstrap';
-const {Header, Body, Footer, Title} = Modal;
-
-class Trigger extends Component {
-  constructor() {
-    super();
-    this.state = { showModal: false };
-  }
+class CommentBox extends Component {
+  // _getComment() {
+  //   const commentList = 
+  // }
 
   render() {
-    let close = () => this.setState({ showModal: false});
-
-    return (
-      <div className="modal-container" style={{background: gray}}>
-        <Button
-          bsStyle="primary"
-          bsSize="large"
-          onClick={() => this.setState({ showModal: true})}
-        >
-          Click me!
-        </Button>
-
-        <Modal
-          show={this.state.showModal}
-          onHide={close}
-          container={this}
-          aria-labelledby="contained-modal-title"
-        >
-          <Header closeButton>
-            <Title id="contained-modal-title">Greeting!</Title>
-          </Header>
-          <Body>
-            Hello, Meocon!
-          </Body>
-          <Footer>
-            <Button onClick={close}>See ya!</Button>
-          </Footer>
-        </Modal>
+    return(
+      <div>
+        <Comment author='Tan Duong' body='Minh ve minh co nho ta'/>
+        <Comment author='Thanh Truong' body='Ta ve ta nho nhung hoa cung nguoi'/>
       </div>
     );
   }
-};
+}
 
-ReactDOM.render(<Trigger />, document.getElementById('root'));
+ReactDOM.render(<CommentBox/>, document.getElementById('root'));

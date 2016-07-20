@@ -1,38 +1,9 @@
 [debug] ----------------------------------------------------------------------
-[debug] Command:      /home/hothanh/.nvm/versions/node/v6.3.0/bin/node /home/hothanh/.nvm/versions/node/v6.3.0/bin/firebase deploy
-[debug] CLI Version:  3.0.4
-[debug] Platform:     linux
-[debug] Node Version: v6.3.0
-[debug] Time:         Wed Jul 20 2016 18:21:39 GMT+0700 (ICT)
-[debug] ----------------------------------------------------------------------
-[debug] 
-[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
-[debug] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token
-[debug] <<< HTTP RESPONSE 200
-[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/play-with-names 
-[debug] Error: connect ETIMEDOUT 104.197.85.31:443
-    at Object.exports._errnoException (util.js:1008:11)
-    at exports._exceptionWithHostPort (util.js:1031:20)
-    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1080:14)
-[error] 
-[error] Error: Server Error. Please try again in a few minutes.
-[debug] ----------------------------------------------------------------------
-[debug] Command:      /home/hothanh/.nvm/versions/node/v6.3.0/bin/node /home/hothanh/.nvm/versions/node/v6.3.0/bin/firebase deploy
-[debug] CLI Version:  3.0.4
-[debug] Platform:     linux
-[debug] Node Version: v6.3.0
-[debug] Time:         Wed Jul 20 2016 18:26:44 GMT+0700 (ICT)
-[debug] ----------------------------------------------------------------------
-[debug] 
-[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
-[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/play-with-names 
-[debug] ----------------------------------------------------------------------
 [debug] Command:      /home/hothanh/.nvm/versions/node/v6.3.0/bin/node /home/hothanh/.nvm/versions/node/v6.3.0/bin/firebase serve
 [debug] CLI Version:  3.0.4
 [debug] Platform:     linux
 [debug] Node Version: v6.3.0
-[debug] Time:         Wed Jul 20 2016 18:28:06 GMT+0700 (ICT)
+[debug] Time:         Wed Jul 20 2016 19:44:26 GMT+0700 (ICT)
 [debug] ----------------------------------------------------------------------
 [debug] 
 [info] Starting Firebase development server...
@@ -41,9 +12,3 @@
 [info] Public Directory: public
 [info] 
 [info] Server listening at: http://localhost:5000
-[debug] Error: connect ETIMEDOUT 104.197.85.31:443
-    at Object.exports._errnoException (util.js:1008:11)
-    at exports._exceptionWithHostPort (util.js:1031:20)
-    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1080:14)
-[error] 
-[error] Error: Server Error. Please try again in a few minutes.
